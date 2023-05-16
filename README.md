@@ -13,8 +13,8 @@ macOS Systems. But what if you want to install a `.jpm` file onto your system? D
 you download it and install that way?
 
 As Linux distributions already have a package manager, having another one won't
-hurt a bit. By modifying a file called `remote.list` (and adding additional list
-files), you can sync other repositories and packages.
+hurt a bit. By modifying a file called `remote.list.json` (and adding additional
+list files), you can sync other repositories and packages.
 
 Also, this is the current support list for remote locations.
 
