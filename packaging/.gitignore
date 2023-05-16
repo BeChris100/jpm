@@ -1,0 +1,7 @@
+jpackage-input
+jpackage-win-output
+jpackage-linux-output
+jpackage-osx-output
+jlink-win-output
+jlink-linux-output
+jlink-osx-output

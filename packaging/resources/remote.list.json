@@ -1,0 +1,9 @@
+{
+    "version": 1,
+    "remotes": [
+        {
+            "type": "GitHub",
+            "remote": "https://github.com/BeChris100/jpm"
+        }
+    ]
+}

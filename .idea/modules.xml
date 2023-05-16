@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/aosp/aosp.iml" filepath="$PROJECT_DIR$/aosp/aosp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/commons/commons.iml" filepath="$PROJECT_DIR$/commons/commons.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jpm.iml" filepath="$PROJECT_DIR$/jpm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/updater/updater.iml" filepath="$PROJECT_DIR$/updater/updater.iml" />
+    </modules>
+  </component>
+</project>
