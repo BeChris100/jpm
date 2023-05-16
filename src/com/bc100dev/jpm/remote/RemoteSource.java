@@ -11,9 +11,30 @@ public class RemoteSource {
     private String url;
     private int port;
 
+    public RemoteSource(String url) {
+        this.url = url;
+
+        if (url.startsWith("https"))
+            this.port = 443;
+
+        if (url.startsWith("http"))
+            this.port = 80;
+
+        if (url.startsWith("ftp"))
+            this.port = 21;
+    }
+
     public RemoteSource(String url, int port) {
         this.url = url;
         this.port = port;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public int getPort() {
+        return port;
     }
 
     public void setUrl(String url) {
@@ -44,8 +65,6 @@ public class RemoteSource {
                 urlConnection.setRequestProperty("User-Agent", "BeChris100/jpm, " + getOperatingSystem());
                 urlConnection.setRequestProperty("Accept", "*/*");
                 urlConnection.connect();
-            }
-            case "ftp" -> {
             }
         }
     }

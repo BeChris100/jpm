@@ -1,0 +1,22 @@
+{
+    "__version": 1,
+    "remote": {
+        "name": "Default JPM Remote Source",
+        "packages": [
+            {
+                "name": "jpm",
+                "description": "Java Package/Repository Manager - Simple Package Management Tool",
+                "versions": [
+                    {
+                        "version-name": "1.0",
+                        "version-code": 1,
+                        "release": "releases/v1.0-1",
+                        "changelog": [
+                            "- Initial Release"
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

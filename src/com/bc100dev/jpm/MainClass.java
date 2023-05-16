@@ -2,13 +2,18 @@ package com.bc100dev.jpm;
 
 import com.bc100dev.jpm.remote.RemoteSource;
 import com.bc100dev.jpm.remote.Remotes;
-import com.jpm.commons.AdminCheck;
+import com.bc100dev.jpm.remote.github.GithubRemote;
+import com.jpm.commons.utils.SizeConvert;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.Properties;
 
 public class MainClass {
+
+    static {
+        System.loadLibrary("jpm");
+    }
 
     private static void helpPage() {
         System.out.println("JPM (Java Package Manager)");
@@ -19,10 +24,16 @@ public class MainClass {
         System.out.println("   GitLab -> Making secure connections over the internet");
         System.out.println();
         System.out.println("Packaging usage:");
+        System.out.println("   run, -r, -R [package]");
+        System.out.println("       Runs a ");
         System.out.println("   install, -i [package...]");
         System.out.println("       Fetches the contents from the remote sources");
-        System.out.println("   remove, -r [package...]");
+        System.out.println("   remove, -rm [package...]");
         System.out.println("       Removes one or multiple packages");
+        System.out.println("   create, -CP");
+        System.out.println("       Creates a new empty package");
+        System.out.println("   create-package, -CPP [location]");
+        System.out.println("       Packages the newly created contents");
         System.out.println();
         System.out.println("Remote usage:");
         System.out.println("   sync, -S");
@@ -30,7 +41,8 @@ public class MainClass {
         System.out.println("   update, -U");
         System.out.println("       Syncs all remote sources and fetches cached files");
         System.out.println("   add-src, -aS (-S) [type] [remote]");
-        System.out.println("       Adds another remote source to the remote.list.json file");
+        System.out.println("       Adds another remote source to the remote.list.json file, optionally");
+        System.out.println("       running the sync on all repositories");
     }
 
     private static void version() {
@@ -49,8 +61,7 @@ public class MainClass {
     }
 
     public static void main(String[] args) {
-        System.loadLibrary("jpm");
-
+        /*
         if (args == null || args.length == 0) {
             helpPage();
             System.exit(1);
@@ -68,10 +79,11 @@ public class MainClass {
                 }
             }
         }
+         */
 
         try {
-            RemoteSource src = new RemoteSource("https://github.com/BeChris100/jpm", 443);
-            src.connect();
+            GithubRemote remote = new GithubRemote("BeChris100", "jpm");
+            remote.connect();
         } catch (IOException | URISyntaxException ex) {
             ex.printStackTrace();
         }

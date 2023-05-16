@@ -1,9 +1,10 @@
 {
-    "version": 1,
+    "__version": 1,
     "remotes": [
         {
             "type": "GitHub",
-            "remote": "https://github.com/BeChris100/jpm"
+            "username": "BeChris100",
+            "repository": "jpm"
         }
     ]
 }

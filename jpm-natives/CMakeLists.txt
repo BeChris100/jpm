@@ -7,11 +7,11 @@ set(CMAKE_CXX_STANDARD 17)
 
 # include Java
 if (CMAKE_CXX_COMPILER MATCHES "mingw")
-    include_directories("./jdk20-win")
-    include_directories("./jdk20-win/win32")
+    include_directories("jdk20-win")
+    include_directories("jdk20-win/win32")
 elseif (CMAKE_CXX_COMPILER MATCHES "linux")
-    include_directories("./jdk20-linux/")
-    include_directories("./jdk20-linux/linux/")
+    include_directories("jdk20-linux/")
+    include_directories("jdk20-linux/linux/")
 endif ()
 
 add_library(jpm SHARED src/AdminCheck.cpp)

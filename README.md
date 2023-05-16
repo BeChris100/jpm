@@ -20,7 +20,7 @@ Also, this is the current support list for remote locations.
 
 | Remote Source | Stage          | Progress |
 |---------------|----------------|----------|
-| GitHub        | In development | 0%       |
+| GitHub        | In development | 1%       |
 | GitLab        | In development | 0%       |
 | FTP           | In development | 0%       |
 | AOSP Projects | In development | 0%       |
