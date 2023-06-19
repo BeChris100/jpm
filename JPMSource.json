@@ -1,6 +1,7 @@
 {
     "__version": 1,
     "remote": {
+        "type": "GitHub",
         "name": "Default JPM Remote Source",
         "packages": [
             {
@@ -11,6 +12,7 @@
                         "version-name": "1.0",
                         "version-code": 1,
                         "release": "releases/v1.0-1",
+                        "available": false,
                         "changelog": [
                             "- Initial Release"
                         ]

@@ -142,6 +142,20 @@ public class Utility {
         return str.substring(0, str.toString().length() - split.length());
     }
 
+    public static String[] toArray(List<String> list) {
+        if (list == null)
+            return new String[0];
+
+        if (list.size() == 0)
+            return new String[0];
+
+        String[] array = new String[list.size()];
+        for (int i = 0; i < list.size(); i++)
+            array[i] = list.get(i);
+
+        return array;
+    }
+
     public static String removeBeginningSpaces(String str) {
         if (str.startsWith(" "))
             str = str.replaceFirst(" ", "");

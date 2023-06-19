@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<jpm>
+
+    <application>
+        <type>manifest</type>
+        <name>Sample Project</name>
+        <identifier>1c33e01e-b837-4d28-8477-6609141fc54f</identifier>
+    </application>
+
+    <manifest>
+        <remote
+                type="GitHub"
+                user="BeChris100"
+                repository="jpm"/>
+        <project>
+            <name>JPM</name>
+            <long-name>Java Package/Repository Manager</long-name>
+            <type>app</type>
+            <id>com.bc100dev.jpm</id>
+            <main-class>.MainClass</main-class>
+            <version>
+                <name>1.0.0</name>
+                <code>1</code>
+            </version>
+        </project>
+    </manifest>
+
+</jpm>

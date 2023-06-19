@@ -28,5 +28,7 @@ bin/
 ### Mac OS ###
 .DS_Store
 
+### Custom defined ###
 libs
 app_cmdline
+./test

@@ -3,6 +3,9 @@
     <output-path>$PROJECT_DIR$/out/artifacts/updater</output-path>
     <root id="archive" name="updater.jar">
       <element id="module-output" name="updater" />
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/updater/META-INF/MANIFEST.MF" />
+      </element>
     </root>
   </artifact>
 </component>

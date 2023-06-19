@@ -1,6 +1,5 @@
 package com.bc100dev.jpm.remote.github;
 
-import com.bc100dev.jpm.remote.RemoteSource;
 import org.json.JSONObject;
 
 import javax.net.ssl.HttpsURLConnection;
@@ -10,31 +9,52 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 
-import static com.jpm.commons.utils.RuntimeEnvironment.getOperatingSystem;
+public class GithubRemote {
 
-public class GithubRemote extends RemoteSource {
+    public final static String BRANCH_DEFAULT_MASTER = "master";
+    public final static String BRANCH_DEFAULT_MAIN = "main";
 
-    public GithubRemote(String user, String repo) {
-        super("https://api.github.com/repos/" + user + "/" + repo);
+    public String user, repository, branch;
+
+    public GithubRemote(String user, String repository) {
+        this.user = user;
+        this.repository = repository;
+        this.branch = "master";
     }
 
-    @Override
-    public void connect() throws IOException, URISyntaxException {
-        URI uri = new URI(getUrl());
-        URL mUrl = uri.toURL();
-        HttpsURLConnection urlConnection = (HttpsURLConnection) mUrl.openConnection();
-        urlConnection.setDoOutput(true);
+    public GithubRemote(String user, String repository, String branch) {
+        this.user = user;
+        this.repository = repository;
+        this.branch = branch;
+    }
+
+    public boolean isBranchOnline() throws IOException, URISyntaxException {
+        URI mUri = new URI("https://github.com/" + user + "/" + repository + "/tree/" + branch);
+        URL url = mUri.toURL();
+        HttpsURLConnection urlConnection = (HttpsURLConnection) url.openConnection();
+        urlConnection.setRequestProperty("User-Agent", "BeChris100/jpm, Version 1.0");
         urlConnection.setRequestMethod("GET");
-        urlConnection.setRequestProperty("User-Agent", "BeChris100/jpm, " + getOperatingSystem());
-        urlConnection.setRequestProperty("Accept", "*/*");
         urlConnection.connect();
 
+        return urlConnection.getResponseCode() == 200;
+    }
+
+    public String fetchManifest() throws IOException, URISyntaxException {
+        URI mUri = new URI("https://raw.githubusercontent.com/" + user + "/" + repository + "/" + branch + "/.jpm/manifest.xml");
+        URL url = mUri.toURL();
+        HttpsURLConnection urlConnection = (HttpsURLConnection) url.openConnection();
+        urlConnection.setRequestProperty("User-Agent", "BeChris100/jpm, Version 1.0");
+        urlConnection.setRequestMethod("GET");
+        urlConnection.connect();
+
+        if (urlConnection.getResponseCode() != 200)
+            throw new IOException("\"JPMSource.json\" has not been found on GitHub at \"" + user + "/" + repository + ":" + branch + "\"");
+
         DataInputStream dis = new DataInputStream(urlConnection.getInputStream());
-        byte[] outputData = dis.readAllBytes();
+        byte[] data = dis.readAllBytes();
         dis.close();
 
-        JSONObject json = new JSONObject(new String(outputData));
-        System.out.println(json.toString(2));
+        return new String(data);
     }
 
 }

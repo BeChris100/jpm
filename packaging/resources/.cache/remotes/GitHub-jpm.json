@@ -1,9 +1,23 @@
 {
-    "version": 1,
+    "__version": 1,
     "remote": {
         "type": "GitHub",
-        "location": "https://github.com/BeChris100/jpm",
-        "versions": [
+        "name": "Default JPM Remote Source",
+        "packages": [
+            {
+                "name": "jpm",
+                "description": "Java Package/Repository Manager - Simple Package Management Tool",
+                "versions": [
+                    {
+                        "version-name": "1.0",
+                        "version-code": 1,
+                        "release": "releases/v1.0-1",
+                        "changelog": [
+                            "- Initial Release"
+                        ]
+                    }
+                ]
+            }
         ]
     }
 }
